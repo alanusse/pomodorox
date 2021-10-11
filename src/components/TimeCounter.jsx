@@ -2,6 +2,8 @@
 import Configuration from './Configuration'
 import Container from './Container'
 import ContainerHeader from './ContainerHeader'
+import Button from './Button'
+import './TimeCounter.css'
 
 const TimeCounter = ({
   timesList,
@@ -34,11 +36,11 @@ const TimeCounter = ({
         <span>:</span>
         <span>{seconds}</span>
       </div>
-      <div>
+      <div className='time-counter__action-buttons'>
         {isActive
-          ? <button onClick={pause}>Pause</button>
-          : <button onClick={start}>Start</button>}
-        <button onClick={stop}>Stop</button>
+          ? <Button onClick={pause}>Pause</Button>
+          : <Button onClick={start}>Start</Button>}
+        <Button onClick={stop}>Stop</Button>
       </div>
     </Container>
   )

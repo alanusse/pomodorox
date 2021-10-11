@@ -2,7 +2,9 @@
 import { useState } from 'react'
 import useTimeSelector from '../hooks/useTimeSelector'
 import Container from './Container'
+import IconButton from './IconButton'
 import TimeSelector from './TimeSelector'
+import './Configuration.css'
 
 const ConfigHeader = () => {
   return (
@@ -30,8 +32,10 @@ const Configuration = ({
   }
 
   return (
-    <>
-      <button onClick={() => setIsOpened(!isOpened)}>*</button>
+    <div className='configuration'>
+      <IconButton onClick={() => setIsOpened(!isOpened)}>
+        <i className='fas fa-cog' />
+      </IconButton>
       {isOpened && (
         <Container header={<ConfigHeader />}>
           <p>Set up your custom config</p>
@@ -52,7 +56,7 @@ const Configuration = ({
           <button onClick={handleSaveChanges}>Save changes</button>
         </Container>
       )}
-    </>
+    </div>
   )
 }
 
