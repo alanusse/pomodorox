@@ -1,0 +1,12 @@
+import './IconButton.css'
+
+// eslint-disable-next-line react/prop-types
+const IconButton = ({ children, ...props }) => {
+  return (
+    <button className='icon-button' {...props}>
+      {children}
+    </button>
+  )
+}
+
+export default IconButton
