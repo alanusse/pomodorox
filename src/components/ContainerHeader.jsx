@@ -1,7 +1,9 @@
+import './ContainerHeader.css'
+
 const ContainerHeader = () => {
   return (
-    <div>
-      <span>Pomodorox (´)</span>
+    <div className='container-header'>
+      <span>Pomodorox 🍅</span>
     </div>
   )
 }

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react'
 import useTimer from './hooks/useTimer'
 
@@ -55,7 +54,7 @@ const App = () => {
         return setCurrentStep(1)
       }
     }
-  }, [currentPomodoros, timer.seconds])
+  }, [timer.seconds])
 
   return (
     <>
