@@ -1,9 +1,9 @@
 import './Button.css'
 
 // eslint-disable-next-line react/prop-types
-const Button = ({ children, ...props }) => {
+const Button = ({ children, className, ...props }) => {
   return (
-    <button className='button' {...props}>{children}</button>
+    <button className={`button ${className}`} {...props}>{children}</button>
   )
 }
 

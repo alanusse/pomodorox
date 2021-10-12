@@ -3,9 +3,11 @@
   --color-black: #151515;
   --color-darkGrey: #262626;
   --color-lightGrey: #575757;
+  --color-lighterGrey: #929292;
 }
 
 body {
   font-family: 'Nunito', sans-serif;
-  background-color: var(--color-black);
+  font-size: 1.2rem;
+  background-color: var(--color-black);;
 }

@@ -31,32 +31,33 @@ const Configuration = ({
     })
   }
 
-  return (
-    <div className='configuration'>
-      <IconButton onClick={() => setIsOpened(!isOpened)}>
+  if (!isOpened) {
+    return (
+      <IconButton className='configuration__button' onClick={() => setIsOpened(!isOpened)}>
         <i className='fas fa-cog' />
       </IconButton>
-      {isOpened && (
-        <Container header={<ConfigHeader />}>
-          <p>Set up your custom config</p>
-          <ul>
-            <li>
-              <span>Focus time:</span>
-              <TimeSelector {...focusTimeSelector} />
-            </li>
-            <li>
-              <span>Short break time:</span>
-              <TimeSelector {...shortBreakTimeSelector} />
-            </li>
-            <li>
-              <span>Long break time:</span>
-              <TimeSelector {...longBreakTimeSelector} />
-            </li>
-          </ul>
-          <button onClick={handleSaveChanges}>Save changes</button>
-        </Container>
-      )}
-    </div>
+    )
+  }
+
+  return (
+    <Container className='configuration__content' header={<ConfigHeader />}>
+      <p>Set up your custom config</p>
+      <ul>
+        <li>
+          <span>Focus time:</span>
+          <TimeSelector {...focusTimeSelector} />
+        </li>
+        <li>
+          <span>Short break time:</span>
+          <TimeSelector {...shortBreakTimeSelector} />
+        </li>
+        <li>
+          <span>Long break time:</span>
+          <TimeSelector {...longBreakTimeSelector} />
+        </li>
+      </ul>
+      <button onClick={handleSaveChanges}>Save changes</button>
+    </Container>
   )
 }
 

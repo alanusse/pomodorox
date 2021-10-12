@@ -3,6 +3,7 @@ import Configuration from './Configuration'
 import Container from './Container'
 import ContainerHeader from './ContainerHeader'
 import Button from './Button'
+import Counter from './Counter'
 import './TimeCounter.css'
 
 const TimeCounter = ({
@@ -17,25 +18,24 @@ const TimeCounter = ({
   stop
 }) => {
   return (
-    <Container header={<ContainerHeader />}>
-      <Configuration
-        timesList={timesList}
-        saveChanges={saveChanges}
-      />
-      <div>
+    <Container className='time-counter' header={<ContainerHeader />}>
+      <div className='time-counter__info-bar'>
+        <Configuration
+          timesList={timesList}
+          saveChanges={saveChanges}
+        />
         <span>
           {currentStep === 1
-            ? 'focusTime'
+            ? 'Focus time'
             : currentStep === 2
-              ? 'shortBreak'
-              : 'longBreak'}
+              ? 'Short break'
+              : 'Long break'}
         </span>
       </div>
-      <div>
-        <span>{minutes}</span>
-        <span>:</span>
-        <span>{seconds}</span>
-      </div>
+      <Counter
+        minutes={minutes}
+        seconds={seconds}
+      />
       <div className='time-counter__action-buttons'>
         {isActive
           ? <Button onClick={pause}>Pause</Button>
