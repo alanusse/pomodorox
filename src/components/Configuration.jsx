@@ -4,6 +4,7 @@ import useTimeSelector from '../hooks/useTimeSelector'
 import Container from './Container'
 import IconButton from './IconButton'
 import TimeSelector from './TimeSelector'
+import Button from './Button'
 import './Configuration.css'
 
 const ConfigHeader = () => {
@@ -24,6 +25,7 @@ const Configuration = ({
   const longBreakTimeSelector = useTimeSelector({ minutes: timesList.longBreakTime.minutes, seconds: timesList.longBreakTime.seconds })
 
   const handleSaveChanges = () => {
+    setIsOpened(false)
     saveChanges({
       focusTime: focusTimeSelector,
       shortBreakTime: shortBreakTimeSelector,
@@ -42,21 +44,21 @@ const Configuration = ({
   return (
     <Container className='configuration__content' header={<ConfigHeader />}>
       <p>Set up your custom config</p>
-      <ul>
+      <ul className='configuration-list'>
         <li>
-          <span>Focus time:</span>
+          <span className='configuration-list__time-name'>Focus time:</span>
           <TimeSelector {...focusTimeSelector} />
         </li>
         <li>
-          <span>Short break time:</span>
+          <span className='configuration-list__time-name'>Short break time:</span>
           <TimeSelector {...shortBreakTimeSelector} />
         </li>
         <li>
-          <span>Long break time:</span>
+          <span className='configuration-list__time-name'>Long break time:</span>
           <TimeSelector {...longBreakTimeSelector} />
         </li>
       </ul>
-      <button onClick={handleSaveChanges}>Save changes</button>
+      <Button onClick={handleSaveChanges}>Save changes</Button>
     </Container>
   )
 }

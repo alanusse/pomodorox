@@ -1,0 +1,26 @@
+.time-selector {
+  display: flex;
+}
+
+.time-selector button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  border: 1px solid var(--color-lightGrey);
+  color: var(--color-white);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .3s ease all;
+}
+
+.time-selector button:active {
+  background-color: var(--color-lightGrey);
+}
+
+.time-selector__timer {
+  margin: 0 .8rem;
+}

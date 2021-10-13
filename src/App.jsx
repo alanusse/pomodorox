@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import useTimer from './hooks/useTimer'
+import BellSound from './utils/bellSound'
 
 // components
 import TimeCounter from './components/TimeCounter'
@@ -13,6 +14,9 @@ import TimeCounter from './components/TimeCounter'
 const App = () => {
   const [currentPomodoros, setCurrentPomodoros] = useState(0)
   const [currentStep, setCurrentStep] = useState(1)
+  // const [focusTime, setFocusTime] = useState({ minutes: 25, seconds: 0 })
+  // const [shortBreakTime, setShortBreakTime] = useState({ minutes: 5, seconds: 0 })
+  // const [longBreakTime, setLongBreakTime] = useState({ minutes: 15, seconds: 0 })
   const [focusTime, setFocusTime] = useState({ minutes: 0, seconds: 3 })
   const [shortBreakTime, setShortBreakTime] = useState({ minutes: 0, seconds: 1 })
   const [longBreakTime, setLongBreakTime] = useState({ minutes: 0, seconds: 2 })
@@ -33,6 +37,7 @@ const App = () => {
 
   useEffect(() => {
     if (timer.minutes === '00' && timer.seconds === '00') {
+      BellSound.play()
       // add a finished pomodoro when user finish a focus time
       if (currentStep === 1) {
         const pomodoros = currentPomodoros + 1
