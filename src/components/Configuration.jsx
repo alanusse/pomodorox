@@ -43,7 +43,7 @@ const Configuration = ({
 
   return (
     <Container className='configuration__content' header={<ConfigHeader />}>
-      <p>Set up your custom config</p>
+      <p>Set up your custom configuration</p>
       <ul className='configuration-list'>
         <li>
           <span className='configuration-list__time-name'>Focus time:</span>
